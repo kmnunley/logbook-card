@@ -32,9 +32,9 @@ export class LogbookCard extends LogbookBaseCard {
   public static getStubConfig(_hass: ExtendedHomeAssistant, entities: Array<any>): Record<string, unknown> {
     return {
       entity: entities[0],
-      // The card picker renders live previews, including for frequently changing sensors.
-      hours_to_show: 1,
-      max_items: 5,
+      // Keep live picker previews and newly created cards bounded for noisy sensors.
+      hours_to_show: 12,
+      max_items: 10,
     };
   }
 
